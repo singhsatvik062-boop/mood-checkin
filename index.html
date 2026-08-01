@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Check-In</title>
+</head>
+<body>
+
+    <h1>Mood Check-In</h1>
+
+    <!-- QUESTION 1 -->
+    <div id="q1">
+        <p>How has your sleep been this week?</p>
+        <button onclick="score += 0; document.getElementById('q1').style.display='none'; document.getElementById('q2').style.display='block';">Solid — sleeping fine</button>
+        <button onclick="score += 1; document.getElementById('q1').style.display='none'; document.getElementById('q2').style.display='block';">A bit off, but manageable</button>
+        <button onclick="score += 2; document.getElementById('q1').style.display='none'; document.getElementById('q2').style.display='block';">Struggling most nights</button>
+        <button onclick="score += 3; document.getElementById('q1').style.display='none'; document.getElementById('q2').style.display='block';">Barely sleeping, or sleeping too much</button>
+    </div>
+
+    <!-- QUESTION 2 -->
+    <div id="q2" style="display:none;">
+        <p>How's your energy during the day?</p>
+        <button onclick="score += 0; document.getElementById('q2').style.display='none'; document.getElementById('q3').style.display='block';">Good — I get through my tasks fine</button>
+        <button onclick="score += 1; document.getElementById('q2').style.display='none'; document.getElementById('q3').style.display='block';">Some dips, but okay overall</button>
+        <button onclick="score += 2; document.getElementById('q2').style.display='none'; document.getElementById('q3').style.display='block';">Low most of the time</button>
+        <button onclick="score += 3; document.getElementById('q2').style.display='none'; document.getElementById('q3').style.display='block';">Constantly drained</button>
+    </div>
+
+    <!-- QUESTION 3 -->
+    <div id="q3" style="display:none;">
+        <p>How often have you felt overwhelmed or on edge?</p>
+        <button onclick="score += 0; document.getElementById('q3').style.display='none'; document.getElementById('result').style.display='block'; showResult();">Rarely</button>
+        <button onclick="score += 1; document.getElementById('q3').style.display='none'; document.getElementById('result').style.display='block'; showResult();">A few times</button>
+        <button onclick="score += 2; document.getElementById('q3').style.display='none'; document.getElementById('result').style.display='block'; showResult();">Often</button>
+        <button onclick="score += 3; document.getElementById('q3').style.display='none'; document.getElementById('result').style.display='block'; showResult();">Almost all the time</button>
+    </div>
+
+    <!-- RESULT -->
+    <div id="result" style="display:none;">
+        <h2>Your Result</h2>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        let score = 0;
+
+        function showResult() {
+            let message = "";
+
+            if (score <= 2) {
+                message = "Score: " + score + " — You're doing fairly steady this week. Keep up whatever's working.";
+            } else if (score <= 5) {
+                message = "Score: " + score + " — A bit of strain showing. Try to protect your sleep and take short breaks.";
+            } else {
+                message = "Score: " + score + " — This has been a heavy stretch. Consider talking to someone you trust.";
+            }
+
+            document.getElementById('output').innerText = message;
+        }
+    </script>
+
+</body>
+</html>
+
+
